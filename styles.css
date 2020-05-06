@@ -1,0 +1,41 @@
+ div{
+  position: relative;
+}
+section{
+  position: relative;
+}
+
+span{
+  display: block;
+}
+
+#steps{
+  position: relative;
+  padding: 7% 15% 0 15%;
+}
+
+.steps-div{
+  padding-bottom: 0;
+}
+
+.container-fluid{
+  padding: 7% 15% 7% 15%;
+  text-align: center;
+}
+
+#calculator-body{
+    padding:2% 15%;
+}
+
+#box1{
+  padding: 1% 7% 7% 7%;
+  text-align: left;
+}
+
+
+.recipe-name{
+  padding: 1%;
+}
+h4, h3{
+  padding: 2%;
+}

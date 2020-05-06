@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Nutrient Label Calculator</title>
+
+  <!-- css Stylesheets-->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <!-- bootstrap scripts -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+  <!-- steps section -->
+    <section id="steps">
+      <div class="row container-fluid steps-div">
+        <div class="col-lg-4">
+          <img  src="https://www.verywellfit.com/static/4.151.0/image/recipe_analyzer_step1.png" class="steps-image">
+          <span>Enter Your Ingredients</span>
+        </div>
+        <div class="col-lg-4">
+          <img src="https://www.verywellfit.com/static/4.151.0/image/recipe_analyzer_step2.png" class="steps-image">
+          <span>Click on 'Analyze Recipe'</span>
+        </div>
+        <div class="col-lg-4">
+          <img src="https://www.verywellfit.com/static/4.151.0/image/recipe_analyzer_step3.png" class="steps-image">
+          <span>Get Your Nutrition Facts Label</span>
+        </div>
+      </div>
+    </section>
+
+
+<section id="calculator-body">
+  <div class="container-fluid" id="box1">
+      <div class="form">
+        <h4>Enter Recipe Name (optional)</h4> <input class="recipe-name">
+        <div class="raw-data">
+          <header>
+            <h3>Enter Recipe Ingredients</h3> <a class="btn-sample">Try a Sample Recipe</a>
+          </header>
+          <textarea rows="10"></textarea>
+          <div id="servings_1-1" class="comp servings">
+            <div class="serving-number">
+              <h4>Select Number of Servings</h4>
+              <div class="select"><select>
+                  <option value="null" selected="selected" disabled="disabled" hidden="hidden">---</option>
+                  <option bind-value="n">1</option>
+                  <option bind-value="n">2</option>
+                  <option bind-value="n">3</option>
+                  <option bind-value="n">4</option>
+                  <option bind-value="n">5</option>
+                  <option bind-value="n">6</option>
+                  <option bind-value="n">7</option>
+                  <option bind-value="n">8</option>
+                  <option bind-value="n">9</option>
+                  <option bind-value="n">10</option>
+                  <option bind-value="n">11</option>
+                  <option bind-value="n">12</option>
+                  <option bind-value="n">13</option>
+                  <option bind-value="n">14</option>
+                  <option bind-value="n">15</option>
+                  <option bind-value="n">16</option>
+                  <option bind-value="n">17</option>
+                  <option bind-value="n">18</option>
+                  <option bind-value="n">19</option>
+                  <option bind-value="n">20</option>
+                  <option bind-value="n">21</option>
+                  <option bind-value="n">22</option>
+                  <option bind-value="n">23</option>
+                  <option bind-value="n">24</option>
+                  <option bind-value="n">25</option>
+                  <option bind-value="n">26</option>
+                  <option bind-value="n">27</option>
+                  <option bind-value="n">28</option>
+                  <option bind-value="n">29</option>
+                  <option bind-value="n">30</option>
+                  <option bind-value="n">31</option>
+                  <option bind-value="n">32</option>
+                  <option bind-value="n">33</option>
+                  <option bind-value="n">34</option>
+                  <option bind-value="n">35</option>
+                  <option bind-value="n">36</option>
+                  <option bind-value="n">37</option>
+                  <option bind-value="n">38</option>
+                  <option bind-value="n">39</option>
+                  <option bind-value="n">40</option>
+                  <option bind-value="n">41</option>
+                  <option bind-value="n">42</option>
+                  <option bind-value="n">43</option>
+                  <option bind-value="n">44</option>
+                  <option bind-value="n">45</option>
+                  <option bind-value="n">46</option>
+                  <option bind-value="n">47</option>
+                  <option bind-value="n">48</option>
+                  <option bind-value="n">49</option>
+                  <option bind-value="n">50</option>
+                  <option bind-value="n">51</option>
+                  <option bind-value="n">52</option>
+                  <option bind-value="n">53</option>
+                  <option bind-value="n">54</option>
+                  <option bind-value="n">55</option>
+                  <option bind-value="n">56</option>
+                  <option bind-value="n">57</option>
+                  <option bind-value="n">58</option>
+                  <option bind-value="n">59</option>
+                  <option bind-value="n">60</option>
+                  <option bind-value="n">61</option>
+                  <option bind-value="n">62</option>
+                  <option bind-value="n">63</option>
+                  <option bind-value="n">64</option>
+                  <option bind-value="n">65</option>
+                  <option bind-value="n">66</option>
+                  <option bind-value="n">67</option>
+                  <option bind-value="n">68</option>
+                  <option bind-value="n">69</option>
+                  <option bind-value="n">70</option>
+                  <option bind-value="n">71</option>
+                  <option bind-value="n">72</option>
+                </select> <label class="tool-input-label-units-arrow"></label></div>
+            </div>
+            <div class="serving-size">
+              <h4>Enter serving size (optional)</h4> <input placeholder="e.g. 2 cups, 1 tablespoon" class="serving-size-quantity">
+            </div>
+          </div> <button disabled="disabled" class="btn btn-padded btn-submit">Analyze Recipe</button>
+        </div>
+
+      <!---->
+
+    </div>
+  </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
