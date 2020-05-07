@@ -1,3 +1,6 @@
+h1{
+  padding: 7% 15% 0 15%;
+}
 div{
  position: relative;
 }
@@ -9,9 +12,33 @@ span{
  display: block;
 }
 
+header h4, header nav{
+  display: inline-block;
+}
+header{
+  text-align: justify;
+  padding-top: 2.5%;
+  padding-bottom: 0;
+}
+h4{
+  margin-bottom: 0;
+}
+header::after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
+
 #steps{
  position: relative;
- padding: 7% 15% 0 15%;
+ padding: 0 15%;
+ background-color: #F8F8F8;
+ font-family: 'Lora', serif;
+ font-weight: 400;
+}
+
+.example-recipe{
+  color: blue;
 }
 
 .steps-div{
@@ -28,14 +55,14 @@ span{
 }
 
 #box1{
- padding: 1% 7% 7% 7%;
+ padding: 3% 3% 3% 3%;
  text-align: left;
 }
-
-
+.servings{
+  text-align: left;
+  padding: 3% 0;
+  border: 0;
+}
 .recipe-name{
  padding: 1%;
-}
-h4, h3{
- padding: 2%;
 }
