@@ -7,6 +7,7 @@
 
   <!-- google fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/c151499d61.js" crossorigin="anonymous"></script>
 
   <!-- css Stylesheets-->
   <link rel="stylesheet" href="styles.css" />
@@ -149,8 +150,8 @@
                 </div>
               </div>
             </div>
-            <button class="btn btn-padded btn-submit btn-primary" id="clear">
-              Clear Recipe
+            <button class="btn btn-padded btn-submit btn-dark btn-lg" id="clear">
+                 Clear Recipe   <i class="fas fa-undo"></i>
             </button>
           </div>
         </div>
@@ -200,7 +201,8 @@
       console.log(responseObj);
       if (responseObj.error) {
         alert("Low quality input");
-      } else {
+      }
+      else {
         $("#nutrientResult").show();
         $("#serving").html(responseObj.yield);
         $(".calories").html(responseObj.calories);
