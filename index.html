@@ -13,8 +13,6 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <!-- bootstrap scripts -->
-
 </head>
 
 <body>
@@ -51,7 +49,7 @@
             <header>
               <h4 class="card-title">Enter Recipe Ingredients</h4>
               <nav>
-                <a class="example-recipe" href="">Try a Sample Recipe</a>
+                <a class="example-recipe" id="sampleRecipe">Try a Sample Recipe</a>
               </nav>
             </header>
             <textarea class="form-control" rows="10" id="recipeIngredients"></textarea>
@@ -60,8 +58,8 @@
                 <h4 class="card-title">Select Number of Servings</h4>
                 <div class="select">
                   <select id="numOfServing" class="form-control">
-                    <option value="null" selected="selected" disabled="disabled" hidden="hidden">
-                      ---
+                    <option value="1" selected="selected" hidden="hidden">
+                      1
                     </option>
                   </select>
                 </div>
@@ -83,9 +81,12 @@
             <div class="row">
               <div class="col-sm">
                 <h3 class="display-4">Recipe Analyzer Results <br /></h3>
-                <p>A single serving of this recipe has
-                  <b><span class="calories"> </span></b> calories. <br />
-                  Read through the nutrition label for a snapshot of this
+                <br>
+                  <h5 class="display-5">A single serving of this recipe has
+                  <b><span class="calories"> </span></b> calories.</h6>
+                  <br>
+                <p class="message-body">
+                  Read through the <span><a href="https://www.verywellfit.com/what-does-based-on-a-2000-calorie-diet-mean-4099137">nutrition label</a></span> for a snapshot of this
                   recipe's nutritional profile. If the label lists less than 5
                   percent daily value for a nutrient it is considered low, while
                   20 percent or more is high. In general, you want to limit
@@ -101,7 +102,7 @@
                       <h6 class="display-6">Servings: <span id="serving"></span><br /></h6>
                       <hr>
                       <h6 class="display-6">Amount per serving <br /></h6>
-                      <h5 class="display-5">Calories: <span class="calories"></span> <br /></h6>
+                      <h5 class="display-5">Calories: <span class="calories"></span> kcal  <br /></h6>
                         <tr>
                           <th></th>
                           <th>Amount(g)</th>
@@ -110,39 +111,54 @@
                         <tr>
                           <td> <b>Total Fat</b> </td>
                           <td><span id="totalFat"></span></td>
-                          <td></td>
+                          <td><span id="total-fat"></span>%</td>
                         </tr>
                         <tr>
                           <td>Saturated Fat</td>
                           <td><span id="saturatedFat"></span></td>
-                          <td></td>
+                          <td><span id="saturated-fat"></span>%</td>
                         </tr>
                         <tr>
                           <td> <b>Cholesterol</b> </td>
                           <td><span id="cholestrol"></span></td>
-                          <td></td>
+                          <td> <span id="cholestrol-1"></span>%</td>
                         </tr>
                         <tr>
                           <td> <b>Sodium</b> </td>
                           <td><span id="sodium"></span></td>
-                          <td></td>
+                          <td><span id="sodium-1"></span>%</td>
                         </tr><tr>
                           <td> <b>Total Carbohydrate</b> </td>
                           <td><span id="totalCarbs"></span></td>
-                          <td></td>
+                          <td><span id="total-carbs"></span>%</td>
                         </tr><tr>
                           <td>Dietary Fiber</td>
                           <td><span id="dietaryFiber"></span></td>
-                          <td></td>
-                        </tr><tr>
+                          <td> <span id="dietary-fiber"></span>%</td>
+                        </tr>
+                        <tr>
                           <td> Total Sugars</td>
                           <td><span id="totalSugar"></span></td>
-                          <td></td>
+                          <td> <span id="total-sugar"></span></td>
                         </tr>
                         <tr>
                           <td> <b> Protein</b></td>
                           <td><span id="protein"></span></td>
-                          <td></td>
+                        </tr>
+                        <hr>
+                        <tr>
+                          <td> Calcium</td>
+                          <td><span id="calcium"></span></td>
+                          <td> <span id="calcium-1"></span>%</td>
+                        </tr>
+                        <tr>
+                          <td> Pottasium</td>
+                          <td><span id="pottasium"></span></td>
+                          <td> <span id="pottasium-1"></span>%</td>
+                        </tr><tr>
+                          <td> Iron</td>
+                          <td><span id="iron"></span></td>
+                          <td> <span id="iron-1"></span>%</td>
                         </tr>
                       </tbody>
                     </table>
@@ -166,79 +182,5 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
   </script>
 </body>
-<script>
-  let select = document.getElementById("numOfServing");
-  for (let i = 1; i <= 72; i++) {
-    let opt = document.createElement("option");
-    opt.value = i;
-    opt.innerHTML = i;
-    select.appendChild(opt);
-  }
-
-  $("#nutrientResult").hide();
-
-  $("#analyze").click(function() {
-    let arrayOfLines = $("#recipeIngredients")
-      .val()
-      .split("\n");
-    let numOfServing = $("#numOfServing").val();
-    let recipeName = $("#recipeName").val();
-    let jsonObj = {
-      title: recipeName,
-      ingr: arrayOfLines,
-      yield: numOfServing
-    };
-    let jsonobj = JSON.stringify(jsonObj);
-    const xhr = new XMLHttpRequest();
-    xhr.open(
-      "POST",
-      "https://api.edamam.com/api/nutrition-details?app_id=4426de42&app_key=345b8cfd43f0f84956e187cdfeacb13d"
-    );
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onload = function() {
-      let jsonResponse = xhr.response;
-      let responseObj = JSON.parse(jsonResponse);
-      console.log(responseObj);
-      if (responseObj.error) {
-        alert("Low quality input");
-      }
-      else {
-        $("#nutrientResult").show();
-        $("#serving").html(responseObj.yield);
-        $(".calories").html(responseObj.calories);
-        $("#totalFat").html(responseObj.totalNutrients.FAT.quantity.toFixed(2));
-        $("#saturatedFat").html(
-          responseObj.totalNutrients.FASAT.quantity.toFixed(2)
-        );
-        $("#cholestrol").html(
-          responseObj.totalNutrients.CHOLE.quantity.toFixed(2)
-        );
-        $("#sodium").html(responseObj.totalNutrients.NA.quantity.toFixed(2));
-        $("#totalCarbs").html(
-          responseObj.totalNutrients.CHOCDF.quantity.toFixed(2)
-        );
-        $("#dietaryFiber").html(
-          responseObj.totalNutrients.FIBTG.quantity.toFixed(2)
-        );
-        $("#totalSugar").html(
-          responseObj.totalNutrients.SUGAR.quantity.toFixed(2)
-        );
-        $("#protein").html(
-          responseObj.totalNutrients.PROCNT.quantity.toFixed(2)
-        );
-      };
-    }
-    xhr.send(jsonobj);
-  });
-
-
-  $("#clear").click(function() {
-    $("#recipeIngredients").val("");
-    $("#recipeName").val("");
-    $("#numOfServing").val(null);
-    $("#servingSize").val("");
-    $("#nutrientResult").hide();
-  });
-</script>
-
+<script src="app.js" charset="utf-8"></script>
 </html>
