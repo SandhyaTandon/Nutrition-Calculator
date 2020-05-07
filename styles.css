@@ -7,10 +7,10 @@ div{
 section{
  position: relative;
 }
-
+/* 
 span{
  display: block;
-}
+} */
 
 header h4, header nav{
   display: inline-block;

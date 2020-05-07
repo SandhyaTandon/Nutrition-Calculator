@@ -18,22 +18,22 @@
 
 <body>
   <!-- heading -->
-  <h1 class="display-3">Nutrition Calculator</h1>
+  <h1 class="display-2">Nutrition Calculator</h1>
 
   <!-- steps section -->
   <section id="steps">
     <div class="row container-fluid steps-div">
       <div class="col-lg-4">
         <img src="https://www.verywellfit.com/static/4.151.0/image/recipe_analyzer_step1.png" class="steps-image" />
-        <span>Enter Your Ingredients</span>
+        <p>Enter Your Ingredients</p>
       </div>
       <div class="col-lg-4">
         <img src="https://www.verywellfit.com/static/4.151.0/image/recipe_analyzer_step2.png" class="steps-image" />
-        <span>Click on 'Analyze Recipe'</span>
+        <p>Click on 'Analyze Recipe'</p>
       </div>
       <div class="col-lg-4">
         <img src="https://www.verywellfit.com/static/4.151.0/image/recipe_analyzer_step3.png" class="steps-image" />
-        <span>Get Your Nutrition Facts Label</span>
+        <p>Get Your Nutrition Facts Label</p
       </div>
     </div>
   </section>
@@ -47,13 +47,13 @@
           <h4 class="card-title">Enter Recipe Name (optional)</h4>
           <input class="recipe-name card-text form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="recipeName" />
           <div class="raw-data ">
-            <header >
+            <header>
               <h4 class="card-title">Enter Recipe Ingredients</h4>
               <nav>
                 <a class="example-recipe" href="">Try a Sample Recipe</a>
               </nav>
             </header>
-            <textarea class="form-control" rows="10" id="recipeIngredients" ></textarea>
+            <textarea class="form-control" rows="10" id="recipeIngredients"></textarea>
             <div id="servings_1-1" class="row servings">
               <div class="col-6 serving-number">
                 <h4 class="card-title">Select Number of Servings</h4>
@@ -81,32 +81,70 @@
             <br />
             <div class="row">
               <div class="col-sm">
-                Recipe Analyzer Results <br />
-                A single serving of this recipe has
-                <span class="calories"></span> calories. <br />
-                Read through the nutrition label for a snapshot of this
-                recipe's nutritional profile. If the label lists less than 5
-                percent daily value for a nutrient it is considered low, while
-                20 percent or more is high. In general, you want to limit
-                saturated fat, cholesterol, and sodium, and get enough fiber,
-                vitamins, and minerals.
+                <h3 class="display-4">Recipe Analyzer Results <br /></h3>
+                <p>A single serving of this recipe has
+                  <b><span class="calories"> </span></b> calories. <br />
+                  Read through the nutrition label for a snapshot of this
+                  recipe's nutritional profile. If the label lists less than 5
+                  percent daily value for a nutrient it is considered low, while
+                  20 percent or more is high. In general, you want to limit
+                  saturated fat, cholesterol, and sodium, and get enough fiber,
+                  vitamins, and minerals.
+                </p>
               </div>
               <div class="col-sm">
                 <div class="card">
                   <div class="card-body">
-                    Nutrition Facts <br />
-                    Servings: <span id="serving"></span><br />
-                    Amount per serving <br />
-                    Calories <span class="calories"></span> <br />
-                    <span>% Daily Value*</span> <br />
-                    Total Fat <span id="totalFat"></span> <br />
-                    Saturated Fat <span id="saturatedFat"></span> <br />
-                    Cholesterol <span id="cholestrol"></span> <br />
-                    Sodium <span id="sodium"></span> <br />
-                    Total Carbohydrate <span id="totalCarbs"></span> <br />
-                    Dietary Fiber <span id="dietaryFiber"></span> <br />
-                    Total Sugars <span id="totalSugar"></span> <br />
-                    Protein <span id="protein"></span> <br />
+                    <h3 class="display-6">Nutrition Facts <br /></h4>
+                    <table class="nutrition-facts table">
+                      <h6 class="display-6">Servings: <span id="serving"></span><br /></h6>
+                      <hr>
+                      <h6 class="display-6">Amount per serving <br /></h6>
+                      <h5 class="display-5">Calories: <span class="calories"></span> <br /></h6>
+                        <tr>
+                          <th></th>
+                          <th>Amount(g)</th>
+                          <th>% Daily Value*</th>
+                        </tr>
+                        <tr>
+                          <td> <b>Total Fat</b> </td>
+                          <td><span id="totalFat"></span></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>Saturated Fat</td>
+                          <td><span id="saturatedFat"></span></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td> <b>Cholesterol</b> </td>
+                          <td><span id="cholestrol"></span></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td> <b>Sodium</b> </td>
+                          <td><span id="sodium"></span></td>
+                          <td></td>
+                        </tr><tr>
+                          <td> <b>Total Carbohydrate</b> </td>
+                          <td><span id="totalCarbs"></span></td>
+                          <td></td>
+                        </tr><tr>
+                          <td>Dietary Fiber</td>
+                          <td><span id="dietaryFiber"></span></td>
+                          <td></td>
+                        </tr><tr>
+                          <td> Total Sugars</td>
+                          <td><span id="totalSugar"></span></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td> <b> Protein</b></td>
+                          <td><span id="protein"></span></td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
