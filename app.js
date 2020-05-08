@@ -29,6 +29,11 @@ $("#clear").click(function() {
   $("#nutrientResult").hide();
 });
 
+$("#print-label").click(function(){
+  window.print();
+  return false;
+});
+
 function Analyze() {
   let arrayOfLines = $("#recipeIngredients")
     .val()
@@ -44,7 +49,7 @@ function Analyze() {
   const xhr = new XMLHttpRequest();
   xhr.open(
     "POST",
-    "https://api.edamam.com/api/nutrition-details?app_id=4426de42&app_key=345b8cfd43f0f84956e187cdfeacb13d"
+    "https://api.edamam.com/api/nutrition-details?app_id=f1d64b2e&app_key=f821ee43c27434bd334cac611773d8b8"
   );
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onload = function() {
@@ -52,7 +57,7 @@ function Analyze() {
     let responseObj = JSON.parse(jsonResponse);
     console.log(responseObj);
     if (responseObj.error) {
-      alert("Low quality input");
+      alert("Improper input format.");
     }
     else {
       $("#nutrientResult").show();

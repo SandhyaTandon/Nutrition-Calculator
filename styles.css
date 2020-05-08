@@ -72,3 +72,19 @@ header::after {
 .recipe-name{
  padding: 1%;
 }
+.func-buttons{
+  margin-right: 0;
+  align-items: center;
+}
+.print-div{
+  padding-top: 15%;
+}
+
+#print-label{
+  padding: .5rem 6rem;
+  font-size: 1.5rem;
+}
+ #clear{
+   padding: .5rem 7rem;
+   font-size: 1.5rem;
+ }
